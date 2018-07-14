@@ -11,13 +11,15 @@ db.once('open', function() {
 
 const Schema = mongoose.Schema
 const UserSchema = new Schema({
-    nickname: {
+    username: { //suggest school email for GC and not school email for student
         type: String,
         unique: true
     },
-    address: {
-        type: String,
-        unique: true
+    password: {
+        type: String
+    },
+    accountType: {
+        type: String
     },
     sequence: Number,
     updatedAt: { type: Date, default: Date.now }
