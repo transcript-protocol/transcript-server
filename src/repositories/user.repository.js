@@ -2,18 +2,18 @@ const User = require('../entities/User')
 
 const userRepository = {}
 
-userRepository.getUsername = (address) => {
-    return User.findOne({ address })
+userRepository.getUser = (id) => {
+    return User.findOne({ id })
 }
 
-userRepository.storeUsername = (userInfo) => {
+userRepository.storeUser = (userInfo) => {
     console.log('HERE ', userInfo)
     const newUser = new User(userInfo)
     return newUser.save()
 }
 
-userRepository.deleteUsername = (address) => {
-    return User.findOne({ address }).remove()
+userRepository.deleteUser = (id) => {
+    return User.findOne({ id }).remove()
 }
 
 module.exports = userRepository

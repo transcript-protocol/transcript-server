@@ -7,16 +7,16 @@ const userService = {}
 //delete user
 //get user
 
-userService.getNickname = (address) => {
-    return userRepository.getNickname(address)
+userService.getUser = (id) => {
+    return userRepository.getUser(id)
 }
 
-userService.storeNickname = (userInfo) => {
-    return userRepository.storeNickname(userInfo)
+userService.storeUser = (userInfo) => {
+    return userRepository.storeUser(userInfo)
 }
 
-userService.deleteNickname = (address) => {
-    return userRepository.deleteNickname(address)
+userService.deleteUser = (id) => {
+    return userRepository.deleteUser(id)
 }
 
 module.exports = userService

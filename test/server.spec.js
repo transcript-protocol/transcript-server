@@ -5,12 +5,28 @@ const ethUtil = require('ethereumjs-util')
 const server = require('../src/server.js')
 const User = require('../src/entities/User')
 
-describe('GET /helloworld', function() {
-  it('should respond with "hello world"', function(done) {
-    request(server).get('/helloworld').expect('hello world', done)
-  })
+describe('HTTP Server', function() {
+    describe('/user', function() {
+        const user1 = {
+
+        }
+
+        it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+                request(server).get('/user/123456').expect(404, done)
+            })
+            // it('should return 204 for sucessfullly added user', function(done) {
+            //   request(server).post('/user').send(user1).expect(204, done)
+            // })
+    })
 })
 
+
+
+// describe('GET /helloworld', function() {
+//     it('should respond with "hello world"', function(done) {
+//         request(server).get('/helloworld').expect('hello world', done)
+//     })
+// })
 
 
 // describe('HTTP Server', function() {
@@ -33,11 +49,11 @@ describe('GET /helloworld', function() {
 //     bufferUtil.int32ToBuffer(transaction1.amount),
 //     bufferUtil.int32ToBuffer(transaction1.nonce)
 //   ])
-  
+
 //   transaction1.hash = ethUtil.sha3(transaction1.buffer)
 
 //   const signature1 = generateSignature(transaction1.hash, creditorPrivateKeyBuffer)
-  
+
 //   const data1 = {
 //     transaction: transaction1, 
 //     signature: signature1
@@ -59,11 +75,11 @@ describe('GET /helloworld', function() {
 //     bufferUtil.int32ToBuffer(transaction2.amount),
 //     bufferUtil.int32ToBuffer(transaction2.nonce)
 //   ])
-  
+
 //   transaction2.hash = ethUtil.sha3(transaction2.buffer)
 
 //   const signature2 = generateSignature(transaction2.hash, debtorPrivateKeyBuffer)
-  
+
 //   const data2 = {
 //     transaction: transaction2, 
 //     signature: signature2
@@ -105,7 +121,7 @@ describe('GET /helloworld', function() {
 //         }]
 //       , done)
 //     })
-  
+
 //     it('POST should respond with "TRANSACTION_WRITTEN" if there is a pending counterpart', function(done) {
 //       request(server).post('/transaction').send(data1).end(function() {
 //         request(server).post('/transaction').send(data2).expect('TRANSACTION_WRITTEN', done)
@@ -147,7 +163,7 @@ describe('GET /helloworld', function() {
 //     // })
 //   })
 
-  
+
 
 //   describe('GET /nonce', function() {
 //     it('should respond with the nonce for a given transaction', function(done) {
