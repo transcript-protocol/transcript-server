@@ -1,16 +1,18 @@
 const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcrypt-nodejs');
 
+//should be connection for everything vvvvv
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
-mongoose.createConnection('mongodb://localhost/gmblr')
-// mongoose.connect('mongodb://localhost/gmblr')
+mongoose.connect('mongodb://localhost/transcript')
+// mongoose.connect('mongodb://localhost/transcript')
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function() {
-    console.log('USER SCHEMA CONNECTED')
+    console.log('USER SCHEMA CONNECTED') //just change for whatever schema you're connecting
 });
+// should be mongoose connection for everything in ANY PROJECT EVER^^^^
 
 const Schema = mongoose.Schema
 const UserSchema = new Schema({
