@@ -4,20 +4,80 @@ const ethUtil = require('ethereumjs-util')
 
 const server = require('../src/server.js')
 const User = require('../src/entities/User')
+const Guidance = require('../src/entities/Guidance')
 
 describe('HTTP Server', function() {
-    describe('/user', function() {
-        const user1 = {
+    // describe('/user', function() {
+    //     const user1 = {
+    //         username: 'euler@python.com',
+    //         password: 's1ckv1b3z',
+    //         accountType: 'student'
+    //     }
 
+    //     const user2 = {
+    //         username: 'euler@python.com',
+    //         password: 'h3llach1ll',
+    //         accountType: 'student'
+    //     }
+
+    //     it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+    //             request(server).get('/user/euler@python.com').expect(404, done)
+    //         })
+        
+    //     it('should return 200 for sucessfullly added user', function(done) {
+    //         request(server).post('/user').send(user1).expect(200, done)
+    //     })
+
+    //     it('should return 200 for sucessfully updated user', function(done){
+    //         request(server).put('/user').send(user2).expect(200, done)
+    //     })
+        
+    //     it('should return 204 for sucessfully deleted user', function(done) {
+    //         request(server).delete('/user/euler@python.com').expect(204, done)
+    //     }) 
+
+        
+        
+    // })
+
+    describe('/guidance', function() {
+
+        const guidance1 ={
+            username: 'euler@python.com',
+            nameFirst: 'Scott',
+            nameMiddle: 'ST',
+            nameLast: 'Clarke', 
+            userDOB: '10041952',
+            userSchool: 'Hawkins Middle School'
+        }
+
+        const guidance2 ={
+            username: 'euler@python.com',
+            nameFirst: 'Russel',
+            nameMiddle: 'ST',
+            nameLast: 'Coleman', 
+            userDOB: '10041932',
+            userSchool: 'Hawkins Middle School'
         }
 
         it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-                request(server).get('/user/123456').expect(404, done)
-            })
-            // it('should return 204 for sucessfullly added user', function(done) {
-            //   request(server).post('/user').send(user1).expect(204, done)
-            // })
+            request(server).get('/guidance/euler@python.com').expect(404, done)
+        })
+    
+        it('should return 200 for sucessfullly added guidance counselor', function(done) {
+            request(server).post('/guidance').send(guidance1).expect(200, done)
+        })
+
+        it('should return 200 for sucessfully updated user', function(done){
+            request(server).put('/guidance').send(guidance2).expect(200, done)
+        })
+        
+        it('should return 204 for sucessfully deleted user', function(done) {
+            request(server).delete('/guidance/euler@python.com').expect(204, done)
+        }) 
     })
+
+    
 })
 
 
