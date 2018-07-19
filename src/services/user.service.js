@@ -54,6 +54,7 @@ userService.deleteUser = (username) => {
 //-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
 
 
+
 ////////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO STARTS HERE /////////////
 //////////////////////////////////////////////////
@@ -89,17 +90,17 @@ userService.deleteGuidance = (username) => {
 //////////////////////////////////////////////////
 
 
-//get guidance
+//get student
 userService.getStudent = (username) => {
     return studentRepository.getStudent(username)
 }
 
-//createguidance
+//createstudent
 userService.storeStudent = (userInfo) => {
      return studentRepository.storeStudent(userInfo)   
 }
 
-//updateguidance
+//updatestudent
 userService.updateStudent = (userInfo) => {
     return studentRepository.updateStudent(userInfo)
 }    
