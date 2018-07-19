@@ -3,6 +3,7 @@
 
 const userRepository = require('../repositories/user.repository')
 const guidanceRepository = require('../repositories/guidance.repository')
+const studentRepository = require('../repositories/student.repository')
 
 
 const userService = {}
@@ -80,6 +81,36 @@ userService.deleteGuidance = (username) => {
 
 ///////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO ENDS HERE //////////////
+/////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////
+// CODE FOR STUDENT INFO STARTS HERE /////////////
+//////////////////////////////////////////////////
+
+
+//get guidance
+userService.getStudent = (username) => {
+    return studentRepository.getStudent(username)
+}
+
+//createguidance
+userService.storeStudent = (userInfo) => {
+     return studentRepository.storeStudent(userInfo)   
+}
+
+//updateguidance
+userService.updateStudent = (userInfo) => {
+    return studentRepository.updateStudent(userInfo)
+}    
+//deleteguidance
+userService.deleteStudent = (username) => {
+    return studentRepository.deleteStudent(username)
+}
+
+
+///////////////////////////////////////////////////
+// CODE FOR STUDENT INFO ENDS HERE //////////////
 /////////////////////////////////////////////////
 
 module.exports = userService
