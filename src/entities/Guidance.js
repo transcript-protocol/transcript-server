@@ -23,16 +23,16 @@ const GuidanceSchema = new Schema({
       index: { unique: true }
     },
     
-    nameFirst: { //suggest school email for GC and not school email for student
+    firstName: { //suggest school email for GC and not school email for student
           type: String,
           required: true
       },
 
-    nameMiddle: { //suggest school email for GC and not school email for student
+    middleName: { //suggest school email for GC and not school email for student
         type: String
     },
 
-    nameLast: { //suggest school email for GC and not school email for student
+    lastName: { //suggest school email for GC and not school email for student
         type: String,
         required: true
     },

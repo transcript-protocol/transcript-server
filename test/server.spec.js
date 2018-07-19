@@ -44,36 +44,36 @@ describe('HTTP Server', function() {
 
         const guidance1 ={
             username: 'euler@python.com',
-            nameFirst: 'Scott',
-            nameMiddle: 'ST',
-            nameLast: 'Clarke', 
+            firstName: 'Scott',
+            middleName: 'ST',
+            lastName: 'Clarke', 
             userDOB: '10041952',
             userSchool: 'Hawkins Middle School'
         }
 
         const guidance2 ={
             username: 'euler@python.com',
-            nameFirst: 'Russel',
-            nameMiddle: 'ST',
-            nameLast: 'Coleman', 
+            firstName: 'Russel',
+            middleName: 'ST',
+            lastName: 'Coleman', 
             userDOB: '10041932',
             userSchool: 'Hawkins Middle School'
         }
 
         it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-            request(server).get('/guidance/euler@python.com').expect(404, done)
+            request(server).get('/student/euler@python.com').expect(404, done)
         })
     
         it('should return 200 for sucessfullly added guidance counselor', function(done) {
-            request(server).post('/guidance').send(guidance1).expect(200, done)
+            request(server).post('/student').send(guidance1).expect(200, done)
         })
 
         it('should return 200 for sucessfully updated user', function(done){
-            request(server).put('/guidance').send(guidance2).expect(200, done)
+            request(server).put('/student').send(guidance2).expect(200, done)
         })
         
         it('should return 204 for sucessfully deleted user', function(done) {
-            request(server).delete('/guidance/euler@python.com').expect(204, done)
+            request(server).delete('/student/euler@python.com').expect(204, done)
         }) 
     })
 

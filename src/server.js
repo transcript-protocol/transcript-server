@@ -34,6 +34,11 @@ app.put('/guidance', userController.updateGuidance) //updates guidance counselor
 app.delete('/guidance/:username', userController.deleteGuidance) //deletes guidance counselor data (name, DOB, school name) by username
 
 //student
+app.get('/student/:username', userController.getStudent) //gets student data (name, DOB, school name) from username
+app.post('/student', userController.storeStudent) // sets student data (name, DOB, school name)
+app.put('/student', userController.updateStudent) //updates student data (name, DOB, school name) by username
+app.delete('/student/:username', userController.deleteStudent) //deletes student data (name, DOB, school name) by username
+
 
 //error handling
 app.use((req, res, next) => res.status(404).send("Resource Not Found"))

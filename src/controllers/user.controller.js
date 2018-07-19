@@ -83,11 +83,11 @@ userController.deleteUser = (req, res) => {
 
 userController.getGuidance = (req, res) => {
     userService.getGuidance(req.params.username)
-    .then((user) => {
-        if (!user) {
-            res.status(404).end('User does not exist')
+    .then((guidance) => {
+        if (!guidance) {
+            res.status(404).end('Guidance counselor does not exist')
         } else {
-            res.status(200).end(user)
+            res.status(200).end(guidance)
         }
     })
     .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
@@ -141,6 +141,73 @@ userController.deleteGuidance = (req, res) => {
 
 ///////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO ENDS HERE //////////////
+/////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////
+// CODE FOR STUDENT INFO STARTS HERE /////////////
+//////////////////////////////////////////////////
+
+userController.getStudent = (req, res) => {
+    userService.getStudent(req.params.username)
+    .then((user) => {
+        if (!user) {
+            res.status(404).end('User does not exist')
+        } else {
+            res.status(200).end(user)
+        }
+    })
+    .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
+        console.log(err)
+        if(err === 'id format is not valid') {
+            res.status(400).end(err) //send error code and error text (which is defined by `throw new Error`). 400 = invalid request
+        } else {
+            res.status(503).end(err) //send error code and error text. 503 = service not available
+        }
+    })
+}
+
+userController.storeStudent = (req, res) => {
+    userService.storeStudent(req.body).then( (student) => {
+        console.log('WHAT IS HAPPENDING ', student.username)
+        res.end(JSON.stringify(student.username))
+    })
+    .catch( (err) => {
+        console.log('ERROR: ', err)
+        res.status(400).end(err)
+    })
+}
+
+userController.updateStudent = (req, res) => {
+    userService.updateStudent(req.body).then( (student)  => {
+        res.end(student.username)
+    })
+    .then((student) => {
+        if (!student){
+            res.status(404).end('User does not exist')
+        }else{
+            res.status(200).end('User sucessfully updated')
+        }
+    })
+    .catch ((err) => {
+        console.log('ERROR: ', err)
+        res.status(400).end(err)
+    })
+}
+
+userController.deleteStudent = (req, res) => {
+    userService.deleteStudent(req.params.username).then((data) => {
+            res.status(204).end()
+        })
+        .catch((err) => {
+            console.log(err)
+            res.status(400).end('DELETE_FAILED')
+        })
+}
+
+
+///////////////////////////////////////////////////
+// CODE FOR STUDENT INFO ENDS HERE //////////////
 /////////////////////////////////////////////////
 
 

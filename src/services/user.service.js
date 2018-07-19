@@ -3,6 +3,7 @@
 
 const userRepository = require('../repositories/user.repository')
 const guidanceRepository = require('../repositories/guidance.repository')
+const studentRepository = require('../repositories/student.repository')
 
 
 const userService = {}
@@ -53,6 +54,7 @@ userService.deleteUser = (username) => {
 //-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
 
 
+
 ////////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO STARTS HERE /////////////
 //////////////////////////////////////////////////
@@ -80,6 +82,36 @@ userService.deleteGuidance = (username) => {
 
 ///////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO ENDS HERE //////////////
+/////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////
+// CODE FOR STUDENT INFO STARTS HERE /////////////
+//////////////////////////////////////////////////
+
+
+//get student
+userService.getStudent = (username) => {
+    return studentRepository.getStudent(username)
+}
+
+//createstudent
+userService.storeStudent = (userInfo) => {
+     return studentRepository.storeStudent(userInfo)   
+}
+
+//updatestudent
+userService.updateStudent = (userInfo) => {
+    return studentRepository.updateStudent(userInfo)
+}    
+//deleteguidance
+userService.deleteStudent = (username) => {
+    return studentRepository.deleteStudent(username)
+}
+
+
+///////////////////////////////////////////////////
+// CODE FOR STUDENT INFO ENDS HERE //////////////
 /////////////////////////////////////////////////
 
 module.exports = userService
