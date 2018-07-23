@@ -1,9 +1,18 @@
 // handles all the logic between the controller and the repository
 //
 
+/*
+Written by Andy Cuddeback for EmblemEDU
+Github: acuddeback
+Updated 07/23/18
+Property of EmblemEDU
+*/
+
+
 const userRepository = require('../repositories/user.repository')
 const guidanceRepository = require('../repositories/guidance.repository')
 const studentRepository = require('../repositories/student.repository')
+const hashRepository = require('../repositories/hash.repository')
 
 
 const userService = {}
@@ -47,6 +56,7 @@ userService.deleteUser = (username) => {
 ////////////////////////////////////////////////////
 // CODE FOR USER ACCOUNT INFO ENDS HERE ///////////
 //////////////////////////////////////////////////
+
 
 
 //-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
@@ -104,15 +114,56 @@ userService.storeStudent = (userInfo) => {
 userService.updateStudent = (userInfo) => {
     return studentRepository.updateStudent(userInfo)
 }    
-//deleteguidance
+//deletestudent
 userService.deleteStudent = (username) => {
     return studentRepository.deleteStudent(username)
 }
 
 
-///////////////////////////////////////////////////
+//////////////////////////////////////////////////
 // CODE FOR STUDENT INFO ENDS HERE //////////////
-/////////////////////////////////////////////////
+////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////
+// CODE FOR HASH INFO STARTS HERE ////////////
+/////////////////////////////////////////////
+
+/*
+In this document, 'hash' refers to thw whole hash JS object whereas 'hashValue' refers to the hash itself. 
+
+Example: 
+
+const guidance1 ={
+    hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
+    username: 'euler@python.com'
+    studentUsername: 'student@emblemEDU.com'
+
+}
+*/
+
+//get hash
+userService.getHash = (hashValue) => {
+    return hashRepository.getHash(hashValue)
+}
+
+//create hash
+userService.storeHash = (hashInfo) => {
+    return hashRepository.storeHash(hashInfo)   
+}
+
+//update hash
+userService.updateHash = (hashInfo) => {
+    return hashRepository.updateHash(hashInfo)
+}    
+//delete hash
+userService.deleteHash = (hashValue) => {
+    return hashRepository.deleteHash(hashValue)
+}
+
+///////////////////////////////////////////////
+// CODE FOR HASH INFO ENDS HERE //////////////
+/////////////////////////////////////////////
 
 module.exports = userService
 

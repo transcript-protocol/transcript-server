@@ -1,5 +1,3 @@
-const SALT_WORK_FACTOR = 10;
-const bcrypt = require('bcrypt-nodejs');
 
 //should be connection for everything vvvvv
 const mongoose = require('mongoose')
@@ -16,7 +14,7 @@ db.once('open', function() {
 
 const Schema = mongoose.Schema
 const StudentSchema = new Schema({
-    username: { //matches an email in users, taken from one html field
+    username: { //matches an email in users, aken from one html field
       type: String,
       required: true,
       index: { unique: true }
@@ -41,12 +39,13 @@ const StudentSchema = new Schema({
         required: true
     },
 
-    userSchool: {
+
+    schoolID: {
       type: String, 
       required: true
     },
 
-    previousSchools: {
+    previousSchoolIDs: {
       type: Array
     },
 

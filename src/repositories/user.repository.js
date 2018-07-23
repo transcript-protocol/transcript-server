@@ -28,7 +28,7 @@ userRepository.updateUser = (userInfo) => {
         console.log('CLIENT INPUT: ', userInfo)
         return user.set(userInfo).save()
     }).then( user => {
-        console.log('HERE ', user)
+        console.log('DATABASE ENTRY ', user)
         return user
     })
 }

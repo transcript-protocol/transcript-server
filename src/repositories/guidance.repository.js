@@ -6,8 +6,12 @@ const Guidance = require('../entities/Guidance')
 const guidanceRepository = {}
 
 guidanceRepository.getGuidance = (username) => {
-    //if (id.match(/^[0-9a-fA-F]{24}$/)) {
-        return Guidance.findOne({ username })
+    //if (id.match(/^[0-9a-fA-F]{24}$/)) {  
+    return Guidance.findOne({ username })
+    .then( guidance => {
+      console.log('GUIDANCE INFO IS: ', guidance)
+      return guidance
+    })
         
     //}
     //throw new Error('id format is not valid')

@@ -18,7 +18,15 @@ userController.getUser = (req, res) => {
         if (!user) {
             res.status(404).end('User does not exist')
         } else {
-            res.status(200).end(user)
+            res.status(200).end('got user, yeet!')
+        }
+    })
+    .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
+        console.log(err)
+        if(err === 'id format is not valid') {
+            res.status(400).end(err) //send error code and error text (which is defined by `throw new Error`). 400 = invalid request
+        } else {
+            res.status(503).end(err) //send error code and error text. 503 = service not available
         }
     })
     .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
@@ -82,12 +90,15 @@ userController.deleteUser = (req, res) => {
 //////////////////////////////////////////////////
 
 userController.getGuidance = (req, res) => {
-    userService.getGuidance(req.params.username)
+    var guidance = userService.getGuidance(req.params.username)
     .then((guidance) => {
         if (!guidance) {
             res.status(404).end('Guidance counselor does not exist')
         } else {
-            res.status(200).end(guidance)
+            // console.log(guidance)
+            // guidance = res.end(JSON.stringify(guidance))
+            // console.log('WTF is going on?', guidance)
+            res.status(200).end("got user!!")
         }
     })
     .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
@@ -101,9 +112,10 @@ userController.getGuidance = (req, res) => {
 }
 
 userController.storeGuidance = (req, res) => {
-    userService.storeGuidance(req.body).then( (guidance) => {
+    var guidance = userService.storeGuidance(req.body)
+    .then( (guidance) => {
         console.log('WHAT IS HAPPENDING ', guidance.username)
-        res.end(JSON.stringify(guidance.username))
+        res.end('stored ', guidance.username)
     })
     .catch( (err) => {
         console.log('ERROR: ', err)
@@ -150,11 +162,11 @@ userController.deleteGuidance = (req, res) => {
 
 userController.getStudent = (req, res) => {
     userService.getStudent(req.params.username)
-    .then((user) => {
-        if (!user) {
-            res.status(404).end('User does not exist')
+    .then((student) => {
+        if (!student) {
+            res.status(404).end('Student does not exist')
         } else {
-            res.status(200).end(user)
+            res.status(200).end('got student, yeet!')
         }
     })
     .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
@@ -209,6 +221,84 @@ userController.deleteStudent = (req, res) => {
 ///////////////////////////////////////////////////
 // CODE FOR STUDENT INFO ENDS HERE //////////////
 /////////////////////////////////////////////////
+
+///////////////////////////////////////////////
+// CODE FOR HASH INFO STARTS HERE ////////////
+/////////////////////////////////////////////
+
+/*
+In this document, 'hash' refers to thw whole hash JS object whereas 'hashValue' refers to the hash itself. 
+
+Example: 
+
+const guidance1 ={
+    hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
+    username: 'euler@python.com'
+    studentUsername: 'student@emblemEDU.com'
+}
+*/
+
+userController.getHash = (req, res) => {
+    userService.getHash(req.params.hashValue)
+    .then((hash) => {
+        if (!hash) {
+            res.status(404).end('The document you are trying to verify has not been authenticated by a guidance counselor')
+        } else {
+            res.status(200).end('This document has been authenticated!')
+        }
+    })
+    .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
+        console.log(err)
+        if(err === 'hash format is not valid') {
+            res.status(400).end(err) //send error code and error text (which is defined by `throw new Error`). 400 = invalid request
+        } else {
+            res.status(503).end(err) //send error code and error text. 503 = service not available
+        }
+    })
+}
+
+userController.storeHash = (req, res) => {
+    userService.storeHash(req.body).then( (hash) => {
+        console.log('WHAT IS HAPPENDING ', hash.hashValue)
+        res.end(JSON.stringify(hash.hashValue))
+    })
+    .catch( (err) => {
+        console.log('ERROR: ', err)
+        res.status(400).end(err)
+    })
+}
+
+userController.updateHash = (req, res) => {
+    userService.updateHash(req.body).then( (hash)  => {
+        res.end(hash.hashValue)
+    })
+    .then((hash) => {
+        if (!hash){
+            res.status(404).end('User does not exist')
+        }else{
+            res.status(200).end('User sucessfully updated')
+        }
+    })
+    .catch ((err) => {
+        console.log('ERROR: ', err)
+        res.status(400).end(err)
+    })
+}
+
+userController.deleteHash = (req, res) => {
+    userService.deleteHash(req.params.hashValue).then((data) => {
+            res.status(204).end()
+        })
+        .catch((err) => {
+            console.log(err)
+            res.status(400).end('DELETE_FAILED')
+        })
+}
+
+
+///////////////////////////////////////////////
+// CODE FOR HASH INFO ENDS HERE //////////////
+/////////////////////////////////////////////
 
 
 module.exports = userController

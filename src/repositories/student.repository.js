@@ -8,6 +8,10 @@ const studentRepository = {}
 studentRepository.getStudent = (username) => {
     //if (id.match(/^[0-9a-fA-F]{24}$/)) {
         return Student.findOne({ username })
+        .then( student => {
+          console.log('STUDENT INFO IS: ', student) 
+          return student
+        })
         
     //}
     //throw new Error('id format is not valid')
