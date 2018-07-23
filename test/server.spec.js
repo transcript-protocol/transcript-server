@@ -94,7 +94,6 @@ describe('HTTP Server', function() {
             middleName: 'ST',
             lastName: 'Clarke', 
             userDOB: '10041952',
-
             schoolID: '12345',
             previousSchoolIDs: ['12456', '12567']
         }
@@ -113,7 +112,6 @@ describe('HTTP Server', function() {
             request(server).get('/student/euler@python.com').expect(404, done)
         })
     
-
         it('should return 200 for sucessfullly added student', function(done) {
             request(server).post('/student').send(student1).expect(200, done)
         })
@@ -171,7 +169,6 @@ describe('HTTP Server', function() {
     //         request(server).delete('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(204, done)
     //     }) 
     // })
-
 
 })
 
