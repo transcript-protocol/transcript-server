@@ -12,7 +12,6 @@ studentRepository.getStudent = (username) => {
           console.log('STUDENT INFO IS: ', student) 
           return student
         })
-
         
     //}
     //throw new Error('id format is not valid')

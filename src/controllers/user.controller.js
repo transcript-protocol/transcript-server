@@ -29,6 +29,14 @@ userController.getUser = (req, res) => {
             res.status(503).end(err) //send error code and error text. 503 = service not available
         }
     })
+    .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
+        console.log(err)
+        if(err === 'id format is not valid') {
+            res.status(400).end(err) //send error code and error text (which is defined by `throw new Error`). 400 = invalid request
+        } else {
+            res.status(503).end(err) //send error code and error text. 503 = service not available
+        }
+    })
 }
 
 userController.storeUser = (req, res) => {
