@@ -5,6 +5,9 @@ const ethUtil = require('ethereumjs-util')
 const server = require('../src/server.js')
 const User = require('../src/entities/User')
 const Guidance = require('../src/entities/Guidance')
+const Student = require('../src/entities/Student')
+const Hash = require('../src/entities/Hash')
+
 
 describe('HTTP Server', function() {
     // describe('/user', function() {
@@ -40,42 +43,132 @@ describe('HTTP Server', function() {
         
     // })
 
-    describe('/guidance', function() {
+    // describe('/guidance', function() {
 
-        const guidance1 ={
+    //     const guidance1 ={
+    //         username: 'euler@python.com',
+    //         firstName: 'Scott',
+    //         middleName: 'ST',
+    //         lastName: 'Clarke', 
+    //         userDOB: '10041952',
+    //         schoolID: '12345'
+    //     }
+
+    //     const guidance2 ={
+    //         username: 'euler@python.com',
+    //         firstName: 'Russel',
+    //         middleName: 'ST',
+    //         lastName: 'Coleman', 
+    //         userDOB: '10041932',
+    //         schoolID: '12345'
+    //     }
+
+    //     it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+    //         request(server).get('/guidance/euler@python.com').expect(404, done)
+    //     })
+    
+    //     it('should return 200 for sucessfullly added guidance', function(done) {
+    //         request(server).post('/guidance').send(guidance1).expect(200, done)
+    //     })
+
+    //     it('should return 200 for getting guidance', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+    //         request(server).get('/guidance/euler@python.com').expect(200, done)
+    //     })
+    
+
+    //     it('should return 200 for sucessfully updated user', function(done){
+    //         request(server).put('/guidance').send(guidance2).expect(200, done)
+    //     })
+        
+    //     it('should return 204 for sucessfully deleted user', function(done) {
+    //         request(server).delete('/guidance/euler@python.com').expect(204, done)
+    //     }) 
+    // })
+
+
+    describe('/student', function() {
+
+        const student1 ={
             username: 'euler@python.com',
             firstName: 'Scott',
             middleName: 'ST',
             lastName: 'Clarke', 
             userDOB: '10041952',
-            userSchool: 'Hawkins Middle School'
+            schoolID: '12345',
+            previousSchoolIDs: ['12456', '12567']
         }
 
-        const guidance2 ={
+        const student2 ={
             username: 'euler@python.com',
             firstName: 'Russel',
             middleName: 'ST',
             lastName: 'Coleman', 
             userDOB: '10041932',
-            userSchool: 'Hawkins Middle School'
+            schoolID: '12678',
+            previousSchoolIDs: ['12456', '12567', '12345']
         }
 
         it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
             request(server).get('/student/euler@python.com').expect(404, done)
         })
     
-        it('should return 200 for sucessfullly added guidance counselor', function(done) {
-            request(server).post('/student').send(guidance1).expect(200, done)
+        it('should return 200 for sucessfullly added student', function(done) {
+            request(server).post('/student').send(student1).expect(200, done)
         })
 
+        it('should return 200 for getting student', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/student/euler@python.com').expect(200, done)
+        })
+    
+
         it('should return 200 for sucessfully updated user', function(done){
-            request(server).put('/student').send(guidance2).expect(200, done)
+            request(server).put('/student').send(student2).expect(200, done)
         })
         
         it('should return 204 for sucessfully deleted user', function(done) {
             request(server).delete('/student/euler@python.com').expect(204, done)
         }) 
     })
+
+    // describe('/hash', function(){
+
+    //     const hash1 = {
+    //         hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
+    //         username: 'euler@python.com',
+    //         studentUsername: 'student@emblem.edu', 
+    //         schoolID: '12345',
+
+    //     }
+
+    //     const hash2 = {
+    //         hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
+    //         username: 'euler@python.com',
+    //         studentUsername: 'student1@emblem.edu', 
+    //         schoolID: '12345',
+    //     }
+
+
+    //     it('should return 404 for a hash that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+    //         request(server).get('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(404, done)
+    //     })
+    
+    //     it('should return 200 for sucessfullly added hash', function(done) {
+    //         request(server).post('/hash').send(hash1).expect(200, done)
+    //     })
+
+    //     it('should return 200 for getting hash', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+    //         request(server).get('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(200, done)
+    //     })
+    
+
+    //     it('should return 200 for sucessfully updated user', function(done){
+    //         request(server).put('/hash').send(hash2).expect(200, done)
+    //     })
+        
+    //     it('should return 204 for sucessfully deleted user', function(done) {
+    //         request(server).delete('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(204, done)
+    //     }) 
+    // })
 
     
 })

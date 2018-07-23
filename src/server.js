@@ -39,6 +39,14 @@ app.post('/student', userController.storeStudent) // sets student data (name, DO
 app.put('/student', userController.updateStudent) //updates student data (name, DOB, school name) by username
 app.delete('/student/:username', userController.deleteStudent) //deletes student data (name, DOB, school name) by username
 
+//hash
+app.get('/hash/:hashValue', userController.getHash) //gets hash data (hashValue, username, studentUsername) from hashValue
+app.post('/hash', userController.storeHash) // sets hash data (hashValue, username, studentUsername, date&time updated)
+app.put('/hash', userController.updateHash) //updates hash data (hashValue, username, studentUsername) by hashValue
+app.delete('/hash/:hashValue', userController.deleteHash) //deletes hash data (hashValue, username, studentUsername) by hashValue
+
+//school
+
 
 //error handling
 app.use((req, res, next) => res.status(404).send("Resource Not Found"))

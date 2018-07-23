@@ -42,7 +42,7 @@ const GuidanceSchema = new Schema({
         required: true
     },
 
-    userSchool: {
+    schoolID: {
       type: String, 
       required: true
     },
