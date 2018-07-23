@@ -64,6 +64,7 @@ userService.deleteUser = (username) => {
 //-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
 
 
+
 ////////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO STARTS HERE /////////////
 //////////////////////////////////////////////////
@@ -137,7 +138,6 @@ const guidance1 ={
     hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
     username: 'euler@python.com'
     studentUsername: 'student@emblemEDU.com'
-=======
 }
 */
 
