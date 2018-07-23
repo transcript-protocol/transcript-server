@@ -58,10 +58,6 @@ userService.deleteUser = (username) => {
 //////////////////////////////////////////////////
 
 
-//-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
-// ------------- account-guidance Demilitarized Zone----------------
-//-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
-
 
 ////////////////////////////////////////////////////
 // CODE FOR GUIDANCE INFO STARTS HERE /////////////
