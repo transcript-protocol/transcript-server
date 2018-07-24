@@ -10,6 +10,7 @@ const Hash = require('../src/entities/Hash')
 const School = require('../src/entities/School')
 
 
+
 describe('HTTP Server', function() {
     // describe('/user', function() {
     //     const user1 = {
