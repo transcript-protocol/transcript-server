@@ -14,6 +14,8 @@ const guidanceRepository = require('../repositories/guidance.repository')
 const studentRepository = require('../repositories/student.repository')
 const hashRepository = require('../repositories/hash.repository')
 
+//just in case we need it later
+const schoolRepository = require('../repositories/school.repository')
 
 const userService = {}
 

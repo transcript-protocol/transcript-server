@@ -174,7 +174,7 @@ userController.getStudent = (req, res) => {
 userController.storeStudent = (req, res) => {
     userService.storeStudent(req.body).then( (student) => {
         console.log('WHAT IS HAPPENDING ', student.username)
-        res.end(JSON.stringify(student.username))
+        res.end('student stored')
     })
     .catch( (err) => {
         console.log('ERROR: ', err)
@@ -252,7 +252,7 @@ userController.getHash = (req, res) => {
 userController.storeHash = (req, res) => {
     userService.storeHash(req.body).then( (hash) => {
         console.log('WHAT IS HAPPENDING ', hash.hashValue)
-        res.end(JSON.stringify(hash.hashValue))
+        res.end('hash stored')
     })
     .catch( (err) => {
         console.log('ERROR: ', err)
