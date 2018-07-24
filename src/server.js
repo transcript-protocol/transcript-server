@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }), bodyParser.json())
 
 //controllers
 const userController = require('./controllers/user.controller')
+const schoolController = require('./controllers/school.controller')
 
 //routes
 
@@ -46,6 +47,11 @@ app.put('/hash', userController.updateHash) //updates hash data (hashValue, user
 app.delete('/hash/:hashValue', userController.deleteHash) //deletes hash data (hashValue, username, studentUsername) by hashValue
 
 //school
+app.get('/school/:schoolID', schoolController.getSchool) //gets school data (name and address) from schoolID
+app.get('/school/query/zip/:zip', schoolController.getSchool) 
+app.post('/school/:schoolID', schoolController.storeSchool) // sets school data (name and address)
+app.put('/school/:schoolID', schoolController.updateSchool) //updates school data (name and address) by schoolID
+app.delete('/school/:schoolID', schoolController.deleteSchool) //deletes school data (name and address) by schoolID
 
 
 //error handling
