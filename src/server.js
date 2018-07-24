@@ -3,7 +3,9 @@
 // is called server.js because ti's the top level file
 
 const PORT = 3000
-const app = require('express')()
+const express = require('express')
+const app = express()
+
 
 // const moment = require('moment')
 const path = require('path')
@@ -13,6 +15,7 @@ const bodyParser = require('body-parser')
 // takes weird json file in request and makes it into req.body
 //`app.use` says use this library, 
 app.use(bodyParser.urlencoded({ extended: true }), bodyParser.json())
+app.use(express.static(path.join(__dirname, '../site')))
 
 //controllers
 const userController = require('./controllers/user.controller')
