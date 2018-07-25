@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <title>Sign Up</title>
 </head>
 
 <body>
@@ -43,12 +44,12 @@
                 <input type="password" id="confirmPassword" placeholder="Confirm Password" required/>
 
                 <div class="checkboxy">
-                    <input name="cecky" name="checky" value="1" type="checkbox" required/><label class="terms">I accept the terms of use</label>
+                    <input id="checky" name="checky" value="1" type="checkbox" required/><label class="terms">I accept the terms of use</label>
                 </div>
 
-                <button id="submit" onclick="scrapeAll();" href="#">SIGN UP NOW</button>
+                <button id="submit" onclick="submitUser();" href="#">SIGN UP NOW</button>
 
-                <script src="makeUsers.js"></script>
+                <script src="app.js"></script>
 
             </div>
 
@@ -56,6 +57,5 @@
 
     </div>
 
-    <button onclick="myFunction()">myFunction</button>
     ​
 </body>
