@@ -13,7 +13,7 @@ schoolController.getSchool = (req, res) => {
       } else {
           res.status(200).end('got school, yeet!')
       }
-  })
+  }).then(school => {return school})
   .catch( err => { // 'catch' the error that was thrown by an earlier file (service or repository), and tell the browser the error type and message
       console.log(err)
       if(err === 'id format is not valid') {

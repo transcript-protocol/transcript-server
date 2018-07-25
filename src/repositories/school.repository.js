@@ -8,7 +8,7 @@ const schoolRepository = {}
 schoolRepository.getSchool = (schoolID) => {
     return School.findOne({ schoolID })
     .then( school => {
-      console.log('school INFO IS: ', school) 
+      console.log('SCHOOL INFO IS: ', school) 
       return school
     })
 

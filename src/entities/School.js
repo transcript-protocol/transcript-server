@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/transcript')
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', function() {
-    console.log('HASH SCHEMA CONNECTED') //just change for whatever schema you're connecting
+    console.log('SCHOOL SCHEMA CONNECTED') //just change for whatever schema you're connecting
 });
 // should be mongoose connection for everything in ANY PROJECT EVER^^^^
 
