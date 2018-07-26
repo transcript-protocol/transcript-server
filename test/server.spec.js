@@ -12,165 +12,165 @@ const School = require('../src/entities/School')
 
 
 describe('HTTP Server', function() {
-    // describe('/user', function() {
-    //     const user1 = {
-    //         username: 'euler@python.com',
-    //         password: 's1ckv1b3z',
-    //         accountType: 'student'
-    //     }
+    describe('/user', function() {
+        const user1 = {
+            username: 'euler@python.com',
+            password: 's1ckv1b3z',
+            accountType: 'student'
+        }
 
-    //     const user2 = {
-    //         username: 'euler@python.com',
-    //         password: 'h3llach1ll',
-    //         accountType: 'student'
-    //     }
+        const user2 = {
+            username: 'euler@python.com',
+            password: 'h3llach1ll',
+            accountType: 'student'
+        }
 
-    //     it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //             request(server).get('/user/euler@python.com').expect(404, done)
-    //         })
+        it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+                request(server).get('/user/euler@python.com').expect(404, done)
+            })
         
-    //     it('should return 200 for sucessfullly added user', function(done) {
-    //         request(server).post('/user').send(user1).expect(200, done)
-    //     })
+        it('should return 200 for sucessfullly added user', function(done) {
+            request(server).post('/user/euler@python.com').send(user1).expect(200, done)
+        })
 
-    //     it('should return 200 for sucessfully updated user', function(done){
-    //         request(server).put('/user').send(user2).expect(200, done)
-    //     })
+        it('should return 200 for sucessfully updated user', function(done){
+            request(server).put('/user/euler@python.com').send(user2).expect(200, done)
+        })
         
-    //     it('should return 204 for sucessfully deleted user', function(done) {
-    //         request(server).delete('/user/euler@python.com').expect(204, done)
-    //     }) 
+        it('should return 204 for sucessfully deleted user', function(done) {
+            request(server).delete('/user/euler@python.com').expect(204, done)
+        }) 
 
         
         
-    // })
+    })
 
-    // describe('/guidance', function() {
+    describe('/guidance', function() {
 
-    //     const guidance1 ={
-    //         username: 'euler@python.com',
-    //         firstName: 'Scott',
-    //         middleName: 'ST',
-    //         lastName: 'Clarke', 
-    //         userDOB: '10041952',
-    //         schoolID: '12345'
-    //     }
+        const guidance1 ={
+            username: 'euler@python.com',
+            firstName: 'Scott',
+            middleName: 'ST',
+            lastName: 'Clarke', 
+            userDOB: '10041952',
+            schoolID: '12345'
+        }
 
-    //     const guidance2 ={
-    //         username: 'euler@python.com',
-    //         firstName: 'Russel',
-    //         middleName: 'ST',
-    //         lastName: 'Coleman', 
-    //         userDOB: '10041932',
-    //         schoolID: '12345'
-    //     }
+        const guidance2 ={
+            username: 'euler@python.com',
+            firstName: 'Russel',
+            middleName: 'ST',
+            lastName: 'Coleman', 
+            userDOB: '10041932',
+            schoolID: '12345'
+        }
 
-    //     it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //         request(server).get('/guidance/euler@python.com').expect(404, done)
-    //     })
+        it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/guidance/euler@python.com').expect(404, done)
+        })
     
-    //     it('should return 200 for sucessfullly added guidance', function(done) {
-    //         request(server).post('/guidance').send(guidance1).expect(200, done)
-    //     })
+        it('should return 200 for sucessfullly added guidance', function(done) {
+            request(server).post('/guidance/euler@python.com').send(guidance1).expect(200, done)
+        })
 
-    //     it('should return 200 for getting guidance', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //         request(server).get('/guidance/euler@python.com').expect(200, done)
-    //     })
-    
-
-    //     it('should return 200 for sucessfully updated user', function(done){
-    //         request(server).put('/guidance').send(guidance2).expect(200, done)
-    //     })
-        
-    //     it('should return 204 for sucessfully deleted user', function(done) {
-    //         request(server).delete('/guidance/euler@python.com').expect(204, done)
-    //     }) 
-    // })
-
-
-    // describe('/student', function() {
-
-    //     const student1 ={
-    //         username: 'euler@python.com',
-    //         firstName: 'Scott',
-    //         middleName: 'ST',
-    //         lastName: 'Clarke', 
-    //         userDOB: '10041952',
-    //         schoolID: '12345',
-    //         previousSchoolIDs: ['12456', '12567']
-    //     }
-
-    //     const student2 ={
-    //         username: 'euler@python.com',
-    //         firstName: 'Russel',
-    //         middleName: 'ST',
-    //         lastName: 'Coleman', 
-    //         userDOB: '10041932',
-    //         schoolID: '12678',
-    //         previousSchoolIDs: ['12456', '12567', '12345']
-    //     }
-
-    //     it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //         request(server).get('/student/euler@python.com').expect(404, done)
-    //     })
-    
-    //     it('should return 200 for sucessfullly added student', function(done) {
-    //         request(server).post('/student').send(student1).expect(200, done)
-    //     })
-
-    //     it('should return 200 for getting student', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //         request(server).get('/student/euler@python.com').expect(200, done)
-    //     })
+        it('should return 200 for getting guidance', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/guidance/euler@python.com').expect(200, done)
+        })
     
 
-    //     it('should return 200 for sucessfully updated user', function(done){
-    //         request(server).put('/student').send(student2).expect(200, done)
-    //     })
+        it('should return 200 for sucessfully updated user', function(done){
+            request(server).put('/guidance/euler@python.com').send(guidance2).expect(200, done)
+        })
         
-    //     it('should return 204 for sucessfully deleted user', function(done) {
-    //         request(server).delete('/student/euler@python.com').expect(204, done)
-    //     }) 
-    // })
-
-    // describe('/hash', function(){
-
-    //     const hash1 = {
-    //         hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
-    //         username: 'euler@python.com',
-    //         studentUsername: 'student@emblem.edu', 
-    //         schoolID: '12345',
-
-    //     }
-
-    //     const hash2 = {
-    //         hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
-    //         username: 'euler@python.com',
-    //         studentUsername: 'student1@emblem.edu', 
-    //         schoolID: '12345',
-    //     }
+        it('should return 204 for sucessfully deleted user', function(done) {
+            request(server).delete('/guidance/euler@python.com').expect(204, done)
+        }) 
+    })
 
 
-    //     it('should return 404 for a hash that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //         request(server).get('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(404, done)
-    //     })
+    describe('/student', function() {
+
+        const student1 ={
+            username: 'euler@python.com',
+            firstName: 'Scott',
+            middleName: 'ST',
+            lastName: 'Clarke', 
+            userDOB: '10041952',
+            schoolID: '12345',
+            previousSchoolIDs: ['12456', '12567']
+        }
+
+        const student2 ={
+            username: 'euler@python.com',
+            firstName: 'Russel',
+            middleName: 'ST',
+            lastName: 'Coleman', 
+            userDOB: '10041932',
+            schoolID: '12678',
+            previousSchoolIDs: ['12456', '12567', '12345']
+        }
+
+        it('should return 404 for a user that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/student/euler@python.com').expect(404, done)
+        })
     
-    //     it('should return 200 for sucessfullly added hash', function(done) {
-    //         request(server).post('/hash').send(hash1).expect(200, done)
-    //     })
+        it('should return 200 for sucessfullly added student', function(done) {
+            request(server).post('/student/euler@python.com').send(student1).expect(200, done)
+        })
 
-    //     it('should return 200 for getting hash', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
-    //         request(server).get('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(200, done)
-    //     })
+        it('should return 200 for getting student', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/student/euler@python.com').expect(200, done)
+        })
     
 
-    //     it('should return 200 for sucessfully updated user', function(done){
-    //         request(server).put('/hash').send(hash2).expect(200, done)
-    //     })
+        it('should return 200 for sucessfully updated user', function(done){
+            request(server).put('/student/euler@python.com').send(student2).expect(200, done)
+        })
         
-    //     it('should return 204 for sucessfully deleted user', function(done) {
-    //         request(server).delete('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(204, done)
-    //     }) 
-    // })
+        it('should return 204 for sucessfully deleted user', function(done) {
+            request(server).delete('/student/euler@python.com').expect(204, done)
+        }) 
+    })
+
+    describe('/hash', function(){
+
+        const hash1 = {
+            hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
+            username: 'euler@python.com',
+            studentUsername: 'student@emblem.edu', 
+            schoolID: '12345',
+
+        }
+
+        const hash2 = {
+            hashValue: 'cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58',
+            username: 'euler@python.com',
+            studentUsername: 'student1@emblem.edu', 
+            schoolID: '12345',
+        }
+
+
+        it('should return 404 for a hash that doesnt exist', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(404, done)
+        })
+    
+        it('should return 200 for sucessfullly added hash', function(done) {
+            request(server).post('/hash').send(hash1).expect(200, done)
+        })
+
+        it('should return 200 for getting hash', function(done) { //this is how mocha expects HTTP requests to be written: with a done parameter to the function
+            request(server).get('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(200, done)
+        })
+    
+
+        it('should return 200 for sucessfully updated user', function(done){
+            request(server).put('/hash').send(hash2).expect(200, done)
+        })
+        
+        it('should return 204 for sucessfully deleted user', function(done) {
+            request(server).delete('/hash/cbe3d16cc9f5cef09648e350a1abfbd4a3fb02b7a7f1cd6c02c23b5ee9857e58').expect(204, done)
+        }) 
+    })
 
     describe('/school', function() {
         const school1 = {
@@ -193,9 +193,9 @@ describe('HTTP Server', function() {
         }
 
         const school2 = {
-            schoolID: '22345',
-            schoolName: 'Hawkins',
-            addrLn1: '24 Sagamore Ave',
+            schoolID: '12345',
+            schoolName: 'Medford High',
+            addrLn1: '48 Winthrop Street',
             addrLn2: 'PO BOX 223',
             city: 'Medford',
             state: 'MA', 
@@ -225,13 +225,13 @@ describe('HTTP Server', function() {
             request(server).get('/school/12345').expect(200, done)
         })
 
-        // it('should return 200 for sucessfully updated school', function(done){
-        //     request(server).put('/school/22345').send(school2).expect(200, done)
-        // })
+        it('should return 200 for sucessfully updated school', function(done){
+            request(server).put('/school/12345').send(school2).expect(200, done)
+        })
         
-        // it('should return 204 for sucessfully deleted school', function(done) {
-        //     request(server).delete('/school/22345').expect(204, done)
-        // })
+        it('should return 204 for sucessfully deleted school', function(done) {
+            request(server).delete('/school/12345').expect(204, done)
+        })
 
         
         
