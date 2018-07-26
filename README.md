@@ -1,6 +1,9 @@
 # transcript-server
 
 This repo is the NodeJS server for EmblemEDU.
+THIS REPO HAS BEEN MADE OBSOLETE BY emblem-site
+We thank this repository for its service, but it is out of our controller to replace it as our server. 
+Check out the behemoth repo that is [emblem-site!](https://github.com/transcript-protocol/emblem-site) It's where we're doing all of our development now.
 
 # Setup
 
