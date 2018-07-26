@@ -13,3 +13,6 @@ This repo is the NodeJS server for EmblemEDU.
 
 1. In a separate window, start MongoDB with `mongod`
 2. Run `yarn test`
+
+# Usage
+1.  Please note that our put request does not allow for update of primary identifier at the moment. Usernames, SchoolIDs, and HashValues cannot be updated with our put requests as written.
