@@ -19,4 +19,5 @@ Check out the behemoth repo that is [emblem-site](https://github.com/transcript-
 
 # Usage
 1.  Please note that our put request does not allow for update of primary identifier at the moment. Usernames, SchoolIDs, and HashValues cannot be updated with our put requests as written. 
+
 2. When running unit tests, comment-out unwanted tests as necessary. When done, un-comment-out unwanted tests to ensure all unit tests will run the next time. This will ensure that whenever someone forks the repository and runs `yarn test` they'll immediately know if there are any problems with the way the code has been set up. 
